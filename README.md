@@ -9,3 +9,9 @@ taught by
 
 This code requires the [NumPy](http://numpy.scipy.org/) and
 [SciPy](http://www.scipy.org/) libraries.
+
+This should go without saying, but _use at your own
+risk_. Contributors are not responsible for lost assignment points due
+to bugs, etc.
+
+Forks and pull requests welcome and encouraged!
