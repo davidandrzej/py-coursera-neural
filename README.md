@@ -7,11 +7,16 @@ the programming assignments in the
 taught by
 [Professor Geoffrey Hinton](http://www.cs.toronto.edu/~hinton/).  
 
-This code requires the [NumPy](http://numpy.scipy.org/) and
-[SciPy](http://www.scipy.org/) libraries.
+This code requires the [NumPy](http://numpy.scipy.org/)
+[SciPy](http://www.scipy.org/), and
+[matplotlib](http://matplotlib.org/) libraries.
 
 This should go without saying, but _use at your own
 risk_. Contributors are not responsible for lost assignment points due
 to bugs, etc.
 
 Forks and pull requests welcome and encouraged!
+
+Contributors in chronological order
+* David Andrzejewski
+* Thomas Ryan Harris 
