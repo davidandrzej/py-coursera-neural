@@ -8,7 +8,11 @@ def learn_perceptron(neg_examples_nobias, pos_examples_nobias,
     pos_examples = add_bias(pos_examples_nobias) 
 
     D = neg_examples.shape[1]
+    
     w_dist_history = []
+    
+    if w_gen_feas == None:
+        w_gen_feas = []
     
     if(w_init == None):
         w = NP.random.randn(D,1)
@@ -26,15 +30,25 @@ def learn_perceptron(neg_examples_nobias, pos_examples_nobias,
                     neg_err, pos_err, 
                     err_history, w, w_dist_history)
     
+    if len(w_gen_feas) != 0:
+        w_dist_history.append(NP.linalg.norm(w - w_gen_feas))
+    
     while(num_errs > 0 and iteration < 1000):
         iteration += 1
         w = update_weights(neg_examples, pos_examples, w)
-
+        
+        if len(w_gen_feas) != 0:
+            w_dist_history.append(NP.linalg.norm(w - w_gen_feas))
+        
         (neg_err, pos_err) = eval_perceptron(neg_examples, 
                                              pos_examples, w)
         num_errs = len(neg_err) + len(pos_err)
         err_history.append(num_errs)
         print error_report(iteration, num_errs, w, w_gen_feas)
+		
+        plot_perceptron(neg_examples, pos_examples, 
+                    neg_err, pos_err, 
+                    err_history, w, w_dist_history)
     return w        
 
     
@@ -69,15 +83,18 @@ def update_weights(neg_examples, pos_examples, w_current):
         activation = NP.dot(neg, w)
         if(activation >= 0):
             # YOUR CODE HERE
+            
     for (posidx, pos) in enumerate(pos_examples):
         activation = NP.dot(pos, w)
         if(activation < 0):
             # YOUR CODE HERE
+            
     return w
 
 
 datafiles = ['dataset1.mat', 'dataset2.mat', 
              'dataset3.mat', 'dataset4.mat']
+
 for df in datafiles: 
     data = scipy.io.loadmat(df)
 
@@ -85,6 +102,6 @@ for df in datafiles:
     pos_examples_nobias = data['pos_examples_nobias']
     w_init = data['w_init']
     w_gen_feas = data['w_gen_feas']
-
+    
     learn_perceptron(neg_examples_nobias, pos_examples_nobias,
                      w_init, w_gen_feas)
