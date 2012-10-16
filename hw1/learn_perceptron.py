@@ -1,5 +1,6 @@
 import numpy as NP
 import scipy.io
+from plot_perceptron import *
 
 def learn_perceptron(neg_examples_nobias, pos_examples_nobias,
                      w_init, w_gen_feas):
@@ -7,6 +8,7 @@ def learn_perceptron(neg_examples_nobias, pos_examples_nobias,
     pos_examples = add_bias(pos_examples_nobias) 
 
     D = neg_examples.shape[1]
+    w_dist_history = []
     
     if(w_init == None):
         w = NP.random.randn(D,1)
@@ -19,7 +21,11 @@ def learn_perceptron(neg_examples_nobias, pos_examples_nobias,
     num_errs = len(neg_err) + len(pos_err)
     err_history = [num_errs]
     print error_report(iteration, num_errs, w, w_gen_feas)
-
+	
+    plot_perceptron(neg_examples, pos_examples, 
+                    neg_err, pos_err, 
+                    err_history, w, w_dist_history)
+    
     while(num_errs > 0 and iteration < 1000):
         iteration += 1
         w = update_weights(neg_examples, pos_examples, w)
