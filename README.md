@@ -1,3 +1,13 @@
+## UPDATE
+
+This repository only has code for HW1.  It turned out that the "style"
+of the programming assignments for this course was not a great fit for
+this kind of project.  For each assignment the amount of code to be
+written by the student (eg, usually a two or three line gradient
+computation) was _much_ smaller than the amount of setup code
+provided.  I will still leave the HW1 code up in case that is useful
+for anyone.
+
 ## README
 
 This repository contains Python ports of the Octave starter code for
@@ -20,3 +30,4 @@ Forks and pull requests welcome and encouraged!
 Contributors in chronological order
 * David Andrzejewski
 * Thomas Ryan Harris 
+
