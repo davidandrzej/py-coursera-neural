@@ -8,6 +8,9 @@ computation) was _much_ smaller than the amount of setup code
 provided.  I will still leave the HW1 code up in case that is useful
 for anyone.
 
+Also, I do _not_ have the actual "official" Octave starter codes for
+the course.
+
 ## README
 
 This repository contains Python ports of the Octave starter code for
